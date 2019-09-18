@@ -1,0 +1,12 @@
+syntax = "proto3";
+package generated;
+
+import "google/protobuf/wrappers.proto";
+
+message Foo {
+    Bar bar = 1;
+}
+
+message Bar {
+    google.protobuf.StringValue field = 1;
+}

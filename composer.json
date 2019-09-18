@@ -1,0 +1,19 @@
+{
+  "name": "serhiikushch/protobuf-serialize-issue",
+  "require": {
+    "ext-grpc": "*",
+    "google/protobuf": "3.9.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Generated\\": "src/Generated",
+      "GPBMetadata\\": "./src/GPBMetadata"
+    }
+  },
+  "scripts": {
+    "test": "composer install && rm -rf src/* && protoc --proto_path=/protobuf/proto --php_out=/protobuf/src --grpc_out=/protobuf/src --plugin=protoc-gen-grpc=/tmp/grpc/bins/opt/grpc_php_plugin messages.proto && cd tests && ../vendor/bin/phpunit -v SerializeChildTest.php"
+  }
+}
